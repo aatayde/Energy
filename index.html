@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+	<title>EV Charging Calculator</title>
+</head>
+<body>
+	<h1>EV Charging Calculator</h1>
+	
+	<form id="charging-form">
+		<label for="battery-capacity">Battery Capacity (kWh):</label>
+		<input type="float" id="battery-capacity" name="battery-capacity" required><br>
+
+        <label for="state-of-charge">Current State Of Charge (
+           <span id="SOC"></span> %):</label>
+		<input type="range" min="0" max="100" value="20" id="state-of-charge" name="state-of-charge" required><br>
+
+		<label for="target-state-of-charge">Target State Of Charge (
+			<span id="TSOC"></span> %):</label>
+		 <input type="range" min="0" max="100" value="80" id="target-state-of-charge" name="target-state-of-charge" required><br>
+ 
+
+		<label for="charging-speed">Charging Speed (kW):</label>
+		<input type="text" id="charging-speed" name="charging-speed" required><br>
+
+		<label for="electricity-rate">Electricity Rate ($/kWh):</label>
+		<input type="float" id="electricity-rate" name="electricity-rate" required><br>
+
+		<input type="submit" value="Calculate">
+	</form>
+
+	<div id="charging-results"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
