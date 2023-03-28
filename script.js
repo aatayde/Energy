@@ -9,17 +9,18 @@ const chargingForm = document.getElementById('charging-form');
 			const electricityRate = parseFloat(document.getElementById('electricity-rate').value);
             const stateOfCharge = document.getElementById('state-of-charge').value
 			const targetStateOfCharge = document.getElementById('target-state-of-charge').value
-            // const difference = (batteryCapacity - (batteryCapacity * (stateOfCharge / 100)))
 			const difference = ((batteryCapacity * (targetStateOfCharge / 100)) - (batteryCapacity * (stateOfCharge / 100)))
 			
 			const chargingTime = difference / chargingSpeed;
 			const chargingCost = difference * electricityRate;
 
-			// calculate time
-			console.log('hours: ', chargingTime)
 
+			// calculate time
+			let hours = chargingTime;
+			let minutes = (hours.toFixed(0) * 60) - (chargingTime * 60);
+			
 			const resultsHtml = `
-				Charging Time: ${chargingTime.toFixed(2)} hours
+				Charging Time: ${Math.floor(hours)} hours : ${minutes} minutes
 				Charging Cost: $${chargingCost.toFixed(2)}
 			`;
 
